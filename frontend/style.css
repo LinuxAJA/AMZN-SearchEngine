@@ -1,0 +1,58 @@
+:root {
+    --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+    --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
+
+    --background: #f8f7f4;
+    --foreground: #1d2533;
+
+    --card: #ffffff;
+    --card-foreground: #1d2533;
+
+    --popover: #ffffff;
+    --popover-foreground: #1d2533;
+
+    --primary: #24384a;
+    --primary-foreground: #fafafa;
+
+    --secondary: #edf1f5;
+    --secondary-foreground: #24384a;
+
+    --muted: #f1f3f5;
+    --muted-foreground: #6a7482;
+
+    --accent: #f0e9d6;
+    --accent-foreground: #24384a;
+
+    --destructive: #c74d3c;
+    --destructive-foreground: #fafafa;
+
+    --border: #dfe3e8;
+    --input: #e7eaee;
+    --ring: #e0ae3f;
+
+    --nav: #1f3446;
+    --nav-foreground: #fafafa;
+    --nav-sub: #3a4f62;
+
+    --cta: #e4b84f;
+    --cta-foreground: #3b3020;
+
+    --price: #a53b2d;
+    --rating: #d8a83f;
+    --success: #3f9d73;
+}
+
+body {
+    font-family: var(--font-sans);
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+}

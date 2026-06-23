@@ -1,0 +1,28 @@
+.hero {
+    height: 1000px;
+    background-color: var(--nav-sub);
+}
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    gap: 10px;
+}
+
+.badge {
+    display: inline-block;
+    background-color: var(--ring);
+    border-radius: 15px;
+    padding: 10px;
+    text-align: center;
+}
+
+.hero-content h1 {
+    color: #ffffff;
+    font-size: 50px;
+    font-weight: bold;
+    line-height: 0px;
+}
+.hero-content p {
+    color: #ffffff;
+}
