@@ -22,7 +22,7 @@ coverage/
 .parcel-cache/
 
 # Lockfiles (optional to ignore)
-.package-lock.json
+# .package-lock.json
 .yarn.lock
 
 # IDEs and editors
@@ -47,5 +47,5 @@ Desktop.ini
 /.nyc_output/
 
 # Documentation
-.AMZN-SearchEngine-estructura.md
-.rubrica_evaluacion.docx
+AMZN-SearchEngine-estructura.md
+rubrica_evaluacion.docx
