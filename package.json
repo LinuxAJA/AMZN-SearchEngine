@@ -1,0 +1,21 @@
+{
+  "name": "amzn-searchengine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LinuxAJA/AMZN-SearchEngine.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/LinuxAJA/AMZN-SearchEngine/issues"
+  },
+  "homepage": "https://github.com/LinuxAJA/AMZN-SearchEngine#readme"
+}

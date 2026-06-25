@@ -1,208 +1,375 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
 
-    <title>AMZN - SearchEngine</title>
+  <title>AMZN - SearchEngine</title>
 </head>
 
 <body>
-    <header class="bg-[var(--nav)] text-[var(--nav-foregroung)] sticky top-0 z-40">
-        <div class="flex items-center gap-2 px-3 py-2 md:gap-4 md:px-6">
-            <a href="/" class="flex items-center gap-1.5 font-display font-bold text-lg shrink-0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-package text-[var(--cta)]" aria-hidden="true">
-                    <path
-                        d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z">
-                    </path>
-                    <path d="M12 22V12"></path>
-                    <polyline points="3.29 7 12 12 20.71 7"></polyline>
-                    <path d="m7.5 4.27 9 5.15"></path>
-                </svg>
-                <span class="text-white">AMZN-<span class="text-[var(--cta)]">SearchEngine</span></span></a>
-            <div class="flex-1 flex rounded-md overflow-hidden ring-2 ring-transparent focus-within:ring-[var(--cta)]">
+  <header class="bg-[var(--nav)] text-[var(--nav-foregroung)] sticky top-0 z-40">
+    <div class="flex items-center gap-2 px-3 py-2 md:gap-4 md:px-6">
+      <a href="/" class="flex items-center gap-1.5 font-display font-bold text-lg shrink-0">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="lucide lucide-package text-[var(--cta)]" aria-hidden="true">
+          <path
+            d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z">
+          </path>
+          <path d="M12 22V12"></path>
+          <polyline points="3.29 7 12 12 20.71 7"></polyline>
+          <path d="m7.5 4.27 9 5.15"></path>
+        </svg>
+        <span class="text-white">AMZN-<span class="text-[var(--cta)]">SearchEngine</span></span></a>
+      <div class="flex-1 flex rounded-md overflow-hidden ring-2 ring-transparent focus-within:ring-[var(--cta)]">
+        <input type="text"
+          class="flex w-full border-input px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm flex-1 h-10 rounded-none border-0 bg-white text-foreground focus-visible:ring-0"
+          placeholder="Busca productos, marcas y más…" value="" />
 
-                <input type="text"
-                    class="flex w-full border-input px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm flex-1 h-10 rounded-none border-0 bg-white text-foreground focus-visible:ring-0"
-                    placeholder="Busca productos, marcas y más…" value="">
+        <button aria-label="Buscar"
+          class="bg-[var(--cta)] text-[var(--cta-foreground)] px-4 grid place-items-center hover:brightness-95">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-search" aria-hidden="true">
+            <path d="m21 21-4.34-4.34"></path>
+            <circle cx="11" cy="11" r="8"></circle>
+          </svg>
+        </button>
+      </div>
+      <a href="comparar.html"
+        class="hidden md:flex flex-col items-start text-xs hover:ring-1 hover:ring-white/40 rounded-sm px-2 py-1">
+        <span class="text-[10px] text-white/70">Decide mejor</span>
 
-                <button aria-label="Buscar"
-                    class="bg-[var(--cta)] text-[var(--cta-foreground)] px-4 grid place-items-center hover:brightness-95">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="lucide lucide-search" aria-hidden="true">
-                        <path d="m21 21-4.34-4.34"></path>
-                        <circle cx="11" cy="11" r="8"></circle>
-                    </svg>
-                </button>
-            </div>
-            <a href="comparar.html" class="hidden md:flex flex-col items-start text-xs hover:ring-1 hover:ring-white/40 rounded-sm px-2 py-1">
-    
-                <span class="text-[10px] text-white/70">Decide mejor</span>
-                
-                <span class="font-semibold flex items-center gap-1 text-white text-[15px]">
-                    
-                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scale" aria-hidden="true">
-                        <path d="M12 3v18"></path>
-                        <path d="m19 8 3 8a5 5 0 0 1-6 0zV7"></path>
-                        <path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1"></path> 
-                        <path d="m5 8 3 8a5 5 0 0 1-6 0zV7"></path>
-                        <path d="M7 21h10"></path>
-                    </svg> 
-                    
-                    Comparar
-                </span>
+        <span class="font-semibold flex items-center gap-1 text-white text-[15px]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-scale" aria-hidden="true">
+            <path d="M12 3v18"></path>
+            <path d="m19 8 3 8a5 5 0 0 1-6 0zV7"></path>
+            <path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1"></path>
+            <path d="m5 8 3 8a5 5 0 0 1-6 0zV7"></path>
+            <path d="M7 21h10"></path>
+          </svg>
 
-            </a>
-        </div>
-        <div class="bg-[var(--nav)] text-white p-4">
-        </div>
-        <nav
-            class="bg-[var(--nav-sub)] text-[var(--nav-foreground)] px-4 py-2 flex items-center justify-between text-sm shadow-md">
-            <div class="flex items-center space-x-2 overflow-x-auto scrollbar-none">
-                <button
-                    class="flex items-center space-x-1 hover:bg-white/10 px-3 py-1.5 rounded transition font-sans cursor-pointer">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                    <span>Todo</span>
-                </button>
-                <a href="#" class="hover:bg-white/10 px-3 py-1.5 rounded transition font-sans">Electrónica</a>
-                <a href="#" class="hover:bg-white/10 px-3 py-1.5 rounded transition font-sans">Hogar</a>
-                <a href="#" class="hover:bg-white/10 px-3 py-1.5 rounded transition font-sans">Moda</a>
-                <a href="#" class="hover:bg-white/10 px-3 py-1.5 rounded transition font-sans">Libros</a>
-                <a href="#" class="hover:bg-white/10 px-3 py-1.5 rounded transition font-sans">Deportes</a>
-                <a href="#" class="hover:bg-white/10 px-3 py-1.5 rounded transition font-sans">Belleza</a>
-                <a href="#" class="hover:bg-white/10 px-3 py-1.5 rounded transition font-sans">Juguetes</a>
-            </div>
-        </nav>
-    </header>
-    <section class="relative bg-gradient-to-r from-[oklch(0.32_0.04_245)] to-[oklch(0.45_0.05_220)] text-white">
-        <div
-            class="px-4 md:px-8 py-8 md:py-14 max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
-            <div>
-                <div
-                    class="inline-flex items-center rounded-md px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent shadow hover:bg-primary/80 bg-[var(--cta)] text-[var(--cta-foreground)] border-0 mb-3">
-                    Ofertas de la Semana</div>
-                <h1 class="font-display text-3xl md:text-5xl font-bold leading-tight max-w-2xl">Descubre Productos
-                    Increíbles con Envío Rápido</h1>
-                <p class="mt-3 text-white/80 max-w-xl">Filtros inteligentes, reseñas verificadas y precios
-                    transparentes. Diseñado pensando en tí</p>
-            </div>
-            <div>
-
-            </div>
-        </div>
-    </section>
-     <div class="max-w-7xl mx-auto px-4 md:px-8 py-8 grid grid-cols-1 lg:grid-cols-4 gap-8">
-    
-        <aside class="space-y-6 lg:sticky lg:top-[112px] lg:self-start lg:col-span-1">
-            <div class="rounded-lg border bg-card p-4">
-                <h3 class="font-semibold mb-3">Categorías</h3>
-                <div class="flex flex-col gap-1 text-sm" >
-                    <button class="text-left px-2 py-1.5 rounded-md transition-colors bg-secondary font-semibold text-[var(--price)]" >
-                        Todo
-                    </button>
-                    <button class="text-left px-2 py-1.5 rounded-md transition-colors hover:bg-secondary/60 text-muted-foreground" >
-                        Electrónica
-                    </button>
-                    <button class="text-left px-2 py-1.5 rounded-md transition-colors hover:bg-secondary/60 text-muted-foreground" >
-                        Hogar
-                    </button>
-                    <button class="text-left px-2 py-1.5 rounded-md transition-colors hover:bg-secondary/60 text-muted-foreground" >
-                        Moda
-                    </button>
-                    <button class="text-left px-2 py-1.5 rounded-md transition-colors hover:bg-secondary/60 text-muted-foreground" >
-                        Libros
-                    </button>
-                    <button class="text-left px-2 py-1.5 rounded-md transition-colors hover:bg-secondary/60 text-muted-foreground" >
-                        Deportes
-                    </button>
-                    <button class="text-left px-2 py-1.5 rounded-md transition-colors hover:bg-secondary/60 text-muted-foreground" >
-                        Belleza
-                    </button>
-                    <button class="text-left px-2 py-1.5 rounded-md transition-colors hover:bg-secondary/60 text-muted-foreground" >
-                        Juguetes
-                    </button>
-                </div>
-            </div>
-            <div class="rounded-lg border bg-card p-4">
-                <h3 class="font-semibold mb-3">Precio</h3>
-                <span dir="ltr" data-orientation="horizontal" aria-disabled="false" class="relative flex w-full touch-none select-none items-center my-3" style="--radix-slider-thumb-transform: translateX(-50%);" >
-
-                </span>
-            </div>
-            <div class="rounded-lg border bg-card p-4">
-                <h3 class="font-semibold mb-3">Valoración Mínima</h3>
-            </div>
-        </aside>
-        <main>  
-            <div class="flex flex-wrap items-center justify-between"
-            <div class="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            <div class="bg-white rounded-lg border border-[var(--border)] overflow-hidden shadow-sm hover:shadow-md transition-shadow group flex flex-col justify-between h-full">
-              
-              <div class="relative bg-gray-50 pt-[100%] w-full overflow-hidden">
-                <div class="absolute top-2 left-2 bg-[var(--price)] text-white text-[10px] font-bold px-1.5 py-0.5 rounded z-10">
-                  -30%
-                </div>
-                <img 
-                  src="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=500&q=80" 
-                  alt="Mochila" 
-                  class="absolute inset-0 w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-
-              <div class="p-4 flex flex-col flex-1 justify-between">
-                <div>
-                  <span class="text-[11px] text-[var(--muted-foreground)] uppercase tracking-wider font-semibold">HP</span>
-                  <h4 class="text-sm font-medium text-[var(--foreground)] line-clamp-2 mt-1 min-h-[40px] font-sans">
-                    Portatil
-                  </h4>
-                  <div class="flex items-center space-x-1 mt-2 text-[var(--rating)] text-xs">
-                    <span>Reseñas ★★★★★</span>
-                    <span class="text-[11px] text-[var(--muted-foreground)] ml-1">(18,752)</span>
-                  </div>
-                </div>
-
-                <div class="mt-4">
-                  <div class="flex items-baseline space-x-2">
-                    <span class="text-lg font-bold text-[var(--price)] font-sans">$34.99</span>
-                    <span class="text-xs text-[var(--muted-foreground)] line-through">$49.99</span>
-                  </div>
-                  <button class="w-full mt-3 bg-[var(--cta)] hover:bg-[#d8a83f] text-[var(--cta-foreground)] text-xs font-semibold py-2 px-4 rounded flex items-center justify-center space-x-2 transition-colors cursor-pointer">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle></svg>
-                    <span>Comparar productos</span>
-                  </button>
-                </div>
-              </div>
-
-            </div>
-            </main>
-        <div>
-            
-        </div>
+          Comparar
+        </span>
+      </a>
     </div>
-
-    <footer class="bg-[#1f3446] text-[#fafafa] py-6 mt-12 w-full font-sans border-t border-white/10">
-        <div class="max-w-6xl mx-auto px-6 flex flex-col items-center justify-center space-y-2 text-center">
-
-            <h3 class="font-display font-bold text-base text-[#e4b84f]">
-                AMZN - SearchEngine
-            </h3>
-
-            <p class="text-[11px] text-[#6a7482] tracking-wide">
-                &copy; 2026 AMZN - SearchEngine. Todos los derechos reservados.
-            </p>
-
+    <div class="bg-[var(--nav)] text-white p-4"></div>
+    <nav
+      class="bg-[var(--nav-sub)] text-[var(--nav-foreground)] px-4 py-2 flex items-center justify-between text-sm shadow-md">
+      <div class="flex items-center space-x-2 overflow-x-auto scrollbar-none">
+        <button
+          class="flex items-center space-x-1 hover:bg-white/10 px-3 py-1.5 rounded transition font-sans cursor-pointer">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+          <span>Todo</span>
+        </button>
+        <a href="#" class="hover:bg-white/10 px-3 py-1.5 rounded transition font-sans">Electrónica</a>
+        <a href="#" class="hover:bg-white/10 px-3 py-1.5 rounded transition font-sans">Hogar</a>
+        <a href="#" class="hover:bg-white/10 px-3 py-1.5 rounded transition font-sans">Moda</a>
+        <a href="#" class="hover:bg-white/10 px-3 py-1.5 rounded transition font-sans">Libros</a>
+        <a href="#" class="hover:bg-white/10 px-3 py-1.5 rounded transition font-sans">Deportes</a>
+        <a href="#" class="hover:bg-white/10 px-3 py-1.5 rounded transition font-sans">Belleza</a>
+        <a href="#" class="hover:bg-white/10 px-3 py-1.5 rounded transition font-sans">Juguetes</a>
+      </div>
+    </nav>
+  </header>
+  <section class="relative bg-gradient-to-r from-[oklch(0.32_0.04_245)] to-[oklch(0.45_0.05_220)] text-white">
+    <div
+      class="px-4 md:px-8 py-8 md:py-14 max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div>
+        <div
+          class="inline-flex items-center rounded-md px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent shadow hover:bg-primary/80 bg-[var(--cta)] text-[var(--cta-foreground)] border-0 mb-3">
+          Ofertas de la Semana
         </div>
-    </footer>
+        <h1 class="font-display text-3xl md:text-5xl font-bold leading-tight max-w-2xl">
+          Descubre Productos Increíbles con Envío Rápido
+        </h1>
+        <p class="mt-3 text-white/80 max-w-xl">
+          Filtros inteligentes, reseñas verificadas y precios transparentes.
+          Diseñado pensando en tí
+        </p>
+      </div>
+      <div></div>
+    </div>
+  </section>
+  <div class="flex-1 px-3 md:px-6 py-6 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-6">
+    <aside class="space-y-6 lg:sticky lg:top-[112px] lg:self-start lg:col-span-1">
+      <div class="rounded-lg border bg-card p-4">
+        <h3 class="font-semibold mb-3">Categorías</h3>
+        <div class="flex flex-col gap-1 text-sm">
+          <button
+            class="text-left px-2 py-1.5 rounded-md transition-colors bg-secondary font-semibold text-[var(--price)]">
+            Todo
+          </button>
+          <button
+            class="text-left px-2 py-1.5 rounded-md transition-colors hover:bg-secondary/60 text-muted-foreground">
+            Electrónica
+          </button>
+          <button
+            class="text-left px-2 py-1.5 rounded-md transition-colors hover:bg-secondary/60 text-muted-foreground">
+            Hogar
+          </button>
+          <button
+            class="text-left px-2 py-1.5 rounded-md transition-colors hover:bg-secondary/60 text-muted-foreground">
+            Moda
+          </button>
+          <button
+            class="text-left px-2 py-1.5 rounded-md transition-colors hover:bg-secondary/60 text-muted-foreground">
+            Libros
+          </button>
+          <button
+            class="text-left px-2 py-1.5 rounded-md transition-colors hover:bg-secondary/60 text-muted-foreground">
+            Deportes
+          </button>
+          <button
+            class="text-left px-2 py-1.5 rounded-md transition-colors hover:bg-secondary/60 text-muted-foreground">
+            Belleza
+          </button>
+          <button
+            class="text-left px-2 py-1.5 rounded-md transition-colors hover:bg-secondary/60 text-muted-foreground">
+            Juguetes
+          </button>
+        </div>
+      </div>
+      <div class="rounded-lg border bg-card p-4">
+        <h3 class="font-semibold mb-3">Precio</h3>
+        <div class="relative flex items-center my-3">
+          <input type="range" min="0" max="1000" value="0"
+            class="w-full h-1 rounded-full bg-primary accent-primary appearance-none cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:opacity-50" />
+        </div>
+        <div class="flex justify-between text-xs text-muted-foreground">
+          <span>$0</span>
+          <span>$1000</span>
+        </div>
+        <div class="flex justify-between text-xs text-muted-foreground"></div>
+      </div>
+      <div class="rounded-lg border bg-card p-4">
+        <h3 class="font-semibold mb-3">Valoración Mínima</h3>
+        <div class="flex flex-col gap-2">
+          <button class="flex items-center gap-2 text-sm px-2 py-1 rounded-md bg-secondary">
+            <div class="flex items-center" aria-label="4 de 5 estrellas"><svg xmlns="http://www.w3.org/2000/svg"
+                width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-star fill-[var(--rating)] text-[var(--rating)]" aria-hidden="true">
+                <path
+                  d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                </path>
+              </svg><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-star fill-[var(--rating)] text-[var(--rating)]" aria-hidden="true">
+                <path
+                  d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                </path>
+              </svg><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-star fill-[var(--rating)] text-[var(--rating)]" aria-hidden="true">
+                <path
+                  d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                </path>
+              </svg><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-star fill-[var(--rating)] text-[var(--rating)]" aria-hidden="true">
+                <path
+                  d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                </path>
+              </svg><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-star text-muted-foreground/40" aria-hidden="true">
+                <path
+                  d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                </path>
+              </svg></div><span class="text-muted-foreground">y más</span>
+          </button>
+          <button class="flex items-center gap-2 text-sm px-2 py-1 rounded-md hover:bg-secondary/60">
+            <div class="flex items-center" aria-label="3 de 5 estrellas"><svg xmlns="http://www.w3.org/2000/svg"
+                width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-star fill-[var(--rating)] text-[var(--rating)]" aria-hidden="true">
+                <path
+                  d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                </path>
+              </svg><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-star fill-[var(--rating)] text-[var(--rating)]" aria-hidden="true">
+                <path
+                  d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                </path>
+              </svg><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-star fill-[var(--rating)] text-[var(--rating)]" aria-hidden="true">
+                <path
+                  d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                </path>
+              </svg><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-star text-muted-foreground/40" aria-hidden="true">
+                <path
+                  d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                </path>
+              </svg><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-star text-muted-foreground/40" aria-hidden="true">
+                <path
+                  d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                </path>
+              </svg></div><span class="text-muted-foreground">y más</span>
+          </button>
+          <button class="flex items-center gap-2 text-sm px-2 py-1 rounded-md hover:bg-secondary/60">
+            <div class="flex items-center" aria-label="2 de 5 estrellas"><svg xmlns="http://www.w3.org/2000/svg"
+                width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-star fill-[var(--rating)] text-[var(--rating)]" aria-hidden="true">
+                <path
+                  d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                </path>
+              </svg><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-star fill-[var(--rating)] text-[var(--rating)]" aria-hidden="true">
+                <path
+                  d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                </path>
+              </svg><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-star text-muted-foreground/40" aria-hidden="true">
+                <path
+                  d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                </path>
+              </svg><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-star text-muted-foreground/40" aria-hidden="true">
+                <path
+                  d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                </path>
+              </svg><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-star text-muted-foreground/40" aria-hidden="true">
+                <path
+                  d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                </path>
+              </svg></div><span class="text-muted-foreground">y más</span>
+          </button>
+          <button class="flex items-center gap-2 text-sm px-2 py-1 rounded-md hover:bg-secondary/60"><span class="text-muted-foreground">Todas</span></button>
+        </div>
+      </div>
+    </aside>
+    <main>
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+        <div>
+          <h2 class="text-xl font-semibold">Todos los productos</h2>
+          <p class="text-sm text-muted-foreground">12 resultados</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-sm text-muted-foreground hidden sm:inline">Ordenar:</span><button type="button"
+            role="combobox" aria-controls="radix-_r_4_" aria-expanded="false" aria-autocomplete="none" dir="ltr"
+            data-state="closed"
+            class="flex items-center justify-between whitespace-nowrap rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background cursor-pointer data-[placeholder]:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50 [&amp;&gt;span]:line-clamp-1 w-44 h-9">
+            <span style="pointer-events: none">Relevancia</span><svg xmlns="http://www.w3.org/2000/svg" width="24"
+              height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" class="lucide lucide-chevron-down h-4 w-4 opacity-50" aria-hidden="true">
+              <path d="m6 9 6 6 6-6"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-4">
+        <article
+          class="group flex flex-col rounded-lg border bg-card overflow-hidden hover:shadow-lg transition-shadow">
+          <button
+            class="group flex flex-col rounded-lg border bg-card overflow-hidden hover:shadow-lg transition-shadow">
+            <img alt="Auriculares Inalámbricos con Cancelación de Ruido" loading="lazy"
+              class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&amp;fit=crop&amp;w=600&amp;q=80" />
+            <div
+              class="inline-flex items-center rounded-md px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent shadow hover:bg-primary/80 absolute left-2 top-2 bg-[var(--price)] text-white border-0">
+              -38%
+            </div>
+          </button>
+          <div class="flex flex-1 flex-col gap-2 p-3">
+            <p class="text-xs text-muted-foreground">SoundCore</p>
+            <button class="text-left text-sm font-medium line-clamp-2 hover:text-[var(--cta)] transition-colors">
+              Auriculares Inalámbricos con Cancelación de Ruido
+            </button>
+            <div class="flex items-center gap-1 5 text-xs">
+              <div class="flex items-center" aria-label="4.5 de 5 estrellas">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-star fill-[var(--rating)] text-[var(--rating)]" aria-hidden="true">
+                  <path
+                    d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                  </path>
+                </svg><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-star fill-[var(--rating)] text-[var(--rating)]" aria-hidden="true">
+                  <path
+                    d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                  </path>
+                </svg><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-star fill-[var(--rating)] text-[var(--rating)]" aria-hidden="true">
+                  <path
+                    d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                  </path>
+                </svg><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-star fill-[var(--rating)] text-[var(--rating)]" aria-hidden="true">
+                  <path
+                    d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                  </path>
+                </svg><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="lucide lucide-star fill-[var(--rating)] text-[var(--rating)]" aria-hidden="true">
+                  <path
+                    d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                  </path>
+                </svg>
+              </div>
+              <span class="text-muted-foreground">(12.483)</span>
+            </div>
+            <div class="flex items-baseline gap-2">
+              <span class="text-xl font-bold text-[var(--price)]">$79.99</span>
+              <span class="text-xs text-muted-foreground line-through">$129.99</span>
+            </div>
+            <button
+              class="inline-flex items-center justify-center gap-2 whitespace-nowrap cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-[var(--cta)] text-[var(--cta-foreground)] shadow-sm hover:brightness-95 font-semibold h-8 rounded-md px-3 text-xs mt-auto">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-scale" aria-hidden="true">
+                <path d="M12 3v18"></path>
+                <path d="m19 8 3 8a5 5 0 0 1-6 0zV7"></path>
+                <path d="M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1"></path>
+                <path d="m5 8 3 8a5 5 0 0 1-6 0zV7"></path>
+                <path d="M7 21h10"></path>
+              </svg>
+              Comparar
+            </button>
+          </div>
+        </article>
+      </div>
+    </main>
+  </div>
+
+  <footer class="bg-[#1f3446] text-[#fafafa] py-6 mt-12 w-full font-sans border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col items-center justify-center space-y-2 text-center">
+      <h3 class="font-display font-bold text-base text-[#e4b84f]">
+        AMZN - SearchEngine
+      </h3>
+
+      <p class="text-[11px] text-[#6a7482] tracking-wide">
+        &copy; 2026 AMZN - SearchEngine. Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+<script src="js/app.js"></script>
+
 </body>
 
 </html>
