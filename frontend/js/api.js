@@ -26,15 +26,15 @@ class ApiError extends Error {
 }
 
 /**
- * ENDPOINT #1 — "Get a Single Product"
- * GET /productos/{id}
- *
- * Busca un producto por su identificador único.
- *
- * @param {number|string} id  Identificador del producto (ej: 3)
- * @returns {Promise<Object>} Promesa que resuelve con el objeto `photo`
- * @throws {ApiError} Si el ID no existe (404) o si falla la red
- */
+    * ENDPOINT #1 — "Get a Single Product"
+    * GET /productos/{id}
+    *
+    * Busca un producto por su identificador único.
+    *
+    * @param {number|string} id  Identificador del producto (ej: 3)
+    * @returns {Promise<Object>} Promesa que resuelve con el objeto `photo`
+    * @throws {ApiError} Si el ID no existe (404) o si falla la red
+    */
 async function obtenerProductoPorId(id) {
     // 1) Validación básica del parámetro antes de gastar una petición.
     const idLimpio = Number(id);
@@ -75,10 +75,8 @@ async function obtenerProductoPorId(id) {
     * ENDPOINT #2 — "Get all Products"
     * GET /productos
     *  
-    * Devuelve una list de todos los productos disponibles.
+    * Devuelve un json de todos los productos disponibles.
     *
-    * @param {number|string} id  Identificador del producto (ej: 3)
-    * @returns {Promise<Object>} Promesa que resuelve con el objeto `photo`
     * @throws {ApiError} Si el ID no existe (404) o si falla la red
 */
 async function obtenerProductos() {
@@ -108,17 +106,15 @@ async function obtenerProductos() {
 }
 
 /**
-    * ENDPOINT #3 — "Get all Products"
-    * GET /productos
+    * ENDPOINT #3 — "Get Categories"
+    * GET /productos/categories
     *  
-    * Devuelve una list de todos los productos disponibles.
+    * Devuelve un json de todos las categorias disponibles.
     *
-    * @param {number|string} id  Identificador del producto (ej: 3)
-    * @returns {Promise<Object>} Promesa que resuelve con el objeto `photo`
     * @throws {ApiError} Si el ID no existe (404) o si falla la red
 */
-async function obtenerProductos() {
-    const url = `${API_BASE_URL}/products`;
+async function obtenerCategorias() {
+    const url = `${API_BASE_URL}/products/categories`;
 
     try {
         const respuesta = await fetch(url);
@@ -143,10 +139,46 @@ async function obtenerProductos() {
     }
 }
 
+/**
+    * ENDPOINT #4 — "Get Product by Category
+    * GET /productos/category/${encodeURIComponent(category)}
+    *  
+    * Devuelve un json de todos las categorias disponibles.
+    *
+    * @throws {ApiError} Si el ID no existe (404) o si falla la red
+*/
+async function obtenerProductosPorCategoria(category) {
+    const url = `${API_BASE_URL}/productos/category/${encodeURIComponent(category)}`;
+
+    try {
+        const respuesta = await fetch(url);
+
+        if (respuesta.status === 404) {
+            throw new ApiError(`No existen productos con esta categoria.`, 404);
+        }
+        if (!respuesta) {
+            throw new ApiError(`Error del servidor (HTTP ${respuesta.status}).`, respuesta.status);
+        }
+
+        const datos = await respuesta.json();
+
+        return datos;
+    } catch (error) {
+
+        if (error instanceof ApiError) {
+            throw error;
+        }
+        // Cualquier otra cosa (sin internet, CORS, JSON inválido) cae aquí.
+        throw new ApiError('No se pudo conectar con la API. Revisa tu conexión.', null);
+    }
+}
+
 // Exponemos el servicio en un único objeto global para que app.js lo use.
 // (Trabajamos sin módulos ES para poder abrir el HTML directamente.)
 window.FakeStoreAPI = {
     obtenerProductoPorId,
     obtenerProductos,
+    obtenerProductosPorCategoria,
+    obtenerCategorias,
     ApiError,
 };
