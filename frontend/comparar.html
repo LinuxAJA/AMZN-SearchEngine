@@ -1,389 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
-    <title>AMZN - SearchEngine</title>
-    <script>
-        tailwind.config = {
-            theme: {
-            extend: {
-                colors: {
-                background: 'var(--background)',
-                foreground: 'var(--foreground)',
-                primary: 'var(--primary)',
-                secondary: 'var(--secondary)',
-                muted: 'var(--muted)',
-                border: 'var(--border)',
-                ring: 'var(--ring)',
-                },
-                fontFamily: {
-                sans: 'var(--font-sans)',
-                display: 'var(--font-display)',
-                }
-            }
-            }
-        }
-    </script>
-</head>
-    <body class="flex min-h-dvh flex-col">
-        <div class="min-h-screen bg-background flex flex-col">
-            <header class="bg-[var(--nav)] text-[var(--nav-foreground)] sticky top-0 z-40">
-                <div class="flex items-center gap-3 px-3 py-2 md:gap-4 md:px-6">
-                    <a href="/" class="flex items-center gap-1.5 font-display font-bold text-lg shrink-0">
-                        📦
-                        <span style="font-size: 30px;">AMZN -</span>
-                        <span class="text-[var(--cta)]" style="font-size: 30px;">SearchEngine</span>
-                    </a>
-                    <a href="/" class="hidden sm:flex items-center gap-1 text-xs hover:ring-1 hover:ring-white/40 rounded-sm px-2 py-1" style="font-size: 20px;">
-                        ⇦  Volver a la tienda
-                    </a>
-                    <div class="flex-1"></div>
-                    <div class="hidden md:flex items-center gap-2 text-sm font-semibold bg-white/10 px-3 py-1.5 rounded-md">
-                        🏆 Modo Comparación
-                    </div>
-                </div>
-            </header>
-            <section class="flex-1 p-4 md:p-6" style="background-color: var(--nav); color: var(--nav-foreground);">
-                <div class="flex items-center justify-between gap-4">
-                    <div>
-                        <div class="inline-flex items-center rounded-md px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent shadow hover:bg-primary/80 bg-[var(--cta)] text-[var(--cta-foreground)] border-0 mb-3">Comparador Inteligente</div>
-                        <h1 class="text-2xl font-bold">Compara hasta 4 productos de la misma categoría</h1>
-                        <p class="mt-2 text-white/80 max-w-xl">Mira precio, valoración, características y utilidades en una sola tabla para decidir con claridad.</p>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <span class="text-sm text-white/80">Categoría: </span>
-                        <button class="text-[var(--cta-foreground)] px-3 py-1 rounded-md text-sm font-semibold">
-                            <span  class="px-3 py-1 rounded-md text-sm font-semibold border-0 outline-none cursor-pointer" style="background-color: white; color: var(--foreground);">Electrónica ▼</span>
-                        </button>
-                    </div>
-                </div>
-            </section>
-            <main class="flex-1 p-4 md:p-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <div class="col-span-full">
-                        <div class="overflow-x-auto rounded-lg border border-white/10">
-                            <table class="w-full text-sm text-left text-white/80">
-                                <thead class="text-xs uppercase bg-white/5 text-white/80">
-                                    <tr>
-                                        <th class="text-left p-4 w-44 align-bottom text-muted-foreground font-medium">Producto</th>
-                                        <th class="p-4 align-top border-l min-w-[200px]">
-                                            <div class="flex flex-col gap-2 relative">
-                                                <button aria-label="Quitar" class="absolute -top-2 -right-2 bg-secondary hover:bg-destructive hover:text-destructive-foreground rounded-full p-1 transition-colors">🅧</button>
-                                                <div class="w-full rounded-md overflow-hidden" style="height: 200px;">
-                                                    <img alt="Auriculares Inalámbricos con Cancelación de Ruido" class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&amp;fit=crop&amp;w=600&amp;q=80">
-                                                </div>
-                                                <p class="text-[10px] uppercase tracking-wide text-[var(--muted-foreground)]">SoundCore</p>
-                                                <p class="font-semibold leading-snug line-clamp-2 text-left text-[var(--muted-foreground)]">Auriculares Inalámbricos con Cancelación de Ruido</p>
-                                            </div>
-                                        </th>
-                                        <th class="p-4 align-top border-l min-w-[200px]">
-                                            <div class="flex flex-col gap-2 relative self-start">
-                                             <button aria-label="Quitar" class="absolute -top-2 -right-2 bg-[var(--secondary)] hover:bg-[var(--destructive)] hover:text-[var(--destructive-foreground)] rounded-full p-1 transition-colors">🅧</button>
-                                             <div class="w-full rounded-md overflow-hidden" style="height: 200px;">
-                                                <img alt="Smartwatch Fitness Tracker Pantalla AMOLED" class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&amp;fit=crop&amp;w=600&amp;q=80">
-                                            </div>
-                                            <p class="text-[10px] uppercase tracking-wide text-[var(--muted-foreground)]">PulseFit</p>
-                                            <p class="font-semibold leading-snug line-clamp-2 text-left text-[var(--muted-foreground)]" >Smartwatch Fitness Tracker Pantalla AMOLED</p>
-                                            </div>
-                                        </th>
-                                        <th class="p-4 align-middle border-l min-w-[180px]">
-                                            <button class="w-full h-40 rounded-md border-2 border-dashed border-[var(--border)] hover:border-[var(--cta)] hover:text-[var(--cta)] transition-colors grid place-items-center text-[var(--muted-foreground)]">
-                                                <div class="flex flex-col items-center gap-1">
-                                                    <span class="text-2xl">+</span>
-                                                    <span class="text-xs font-medium"> + Añadir producto</span>
-                                                </div>
-                                            </button>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="border-b last:border-0">
-                                        <td class="p-4 font-medium text-muted-foreground align-top text-xs uppercase tracking-wide" style="color: var(--muted-foreground);">Precio</td>
-                                        <td class="p-4 align-top border-l ">
-                                            <div class="flex items-baseline gap-1.5">
-                                                <span class="text-xl font-bold text-[var(--price)]">$79.99</span>
-                                                <span class="text-xs line-through" style="color: var(--muted-foreground);">$129.99</span>
-                                            </div>
-                                            <div class="inline-flex items-center rounded-md px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent shadow hover:bg-primary/80 mt-1 bg-[var(--success)]/15 text-[var(--success)] border-0 text-[10px]">Mejor precio</div>
-                                        </td>
-                                        <td class="p-4 align-top border-l bg-[var(--success)]/5">
-                                            <div class="flex items-baseline gap-1.5">
-                                            <span class="text-xl font-bold text-[var(--price)]">$59.00</span>
-                                            <span class="text-xs line-through" style="color: var(--muted-foreground);">$89.00</span>
-                                            </div>
-                                            <div class="inline-flex items-center rounded-md px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent shadow hover:bg-primary/80 mt-1 bg-[var(--success)]/15 text-[var(--success)] border-0 text-[10px]">Mejor precio</div>
-                                        </td>
-                                        <td class="p-4 border-l bg-secondary/20"></td>
-                                    </tr>
-                                    <tr class="border-b last:border-0">
-                                        <td class="p-4 font-medium text-muted-foreground align-top text-xs uppercase tracking-wide" style="color: var(--muted-foreground);">Valoración</td>
-                                        <td class="p-4 align-top border-l bg-[var(--success)]/5">
-                                            <div class="flex items-center" aria-label="4.5 de 5 estrellas">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star fill-[var(--rating)] text-[var(--rating)]" aria-hidden="true">
-                                                    <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
-                                                </svg>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star fill-[var(--rating)] text-[var(--rating)]" aria-hidden="true">
-                                                    <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
-                                                </svg>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star fill-[var(--rating)] text-[var(--rating)]" aria-hidden="true">
-                                                    <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
-                                                </svg>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star fill-[var(--rating)] text-[var(--rating)]" aria-hidden="true">
-                                                    <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
-                                                </svg>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star fill-[var(--rating)] text-[var(--rating)]" aria-hidden="true">
-                                                    <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
-                                                </svg>
-                                            </div>
-                                            <p class="text-xs mt-1" style="color: var(--muted-foreground);">4.5 / 5</p>
-                                        </td>
-                                        <td class="p-4 align-top border-l ">
-                                            <div class="flex items-center" aria-label="4.3 de 5 estrellas">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star fill-[var(--rating)] text-[var(--rating)]" aria-hidden="true">
-                                                    <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
-                                                </svg>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star fill-[var(--rating)] text-[var(--rating)]" aria-hidden="true">
-                                                    <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
-                                                </svg>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star fill-[var(--rating)] text-[var(--rating)]" aria-hidden="true">
-                                                    <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
-                                                </svg>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star fill-[var(--rating)] text-[var(--rating)]" aria-hidden="true">
-                                                    <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
-                                                </svg>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star text-muted-foreground/40" aria-hidden="true">
-                                                    <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path>
-                                                </svg>
-                                            </div>
-                                            <p class="text-xs mt-1" style="color: var(--muted-foreground);">4.3 / 5</p>
-                                        </td>
-                                        <td class="p-4 border-l bg-secondary/20"></td>
-                                    </tr>
-                                        <tr class="border-b last:border-0">
-                                            <td class="p-4 font-medium text-muted-foreground align-top text-xs uppercase tracking-wide" style="color: var(--muted-foreground);">Reseñas</td>
-                                            <td class="p-4 align-top border-l" style="color: var(--muted-foreground);">12.483</td>
-                                            <td class="p-4 align-top border-l " style="color: var(--muted-foreground);">8421</td>
-                                            <td class="p-4 border-l bg-secondary/20"></td></tr>
-                                            <tr class="border-b last:border-0">
-                                                <td class="p-4 font-medium text-muted-foreground align-top text-xs uppercase tracking-wide" style="color: var(--muted-foreground);">Envío Prime</td>
-                                                <td class="p-4 align-top border-l ">
-                                                    <span class="inline-flex items-center gap-1 text-[oklch(0.45_0.15_220)] font-medium">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap fill-current" aria-hidden="true">
-                                                            <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path>
-                                                        </svg> Sí</span>
-                                                    </td>
-                                                    <td class="p-4 align-top border-l ">
-                                                        <span class="inline-flex items-center gap-1 text-[oklch(0.45_0.15_220)] font-medium">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap fill-current" aria-hidden="true">
-                                                                <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path>
-                                                            </svg> Sí</span>
-                                                        </td>
-                                                        <td class="p-4 border-l bg-secondary/20">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparador Inteligente — ShopNova</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="border-b last:border-0"><td class="p-4 font-medium text-muted-foreground align-top text-xs uppercase tracking-wide" style="color: var(--muted-foreground);">Descripción</td>
-                                                        <td class="p-4 align-top border-l ">
-                                                            <p class="text-xs leading-relaxed" style="color: var(--muted-foreground);">Sonido envolvente con cancelación activa de ruido, hasta 40 horas de batería y carga rápida USB-C.</p>
-                                                        </td>
-                                                        <td class="p-4 align-top border-l ">
-                                                            <p class="text-xs leading-relaxed" style="color: var(--muted-foreground);">Monitor de ritmo cardíaco, GPS, sueño y +100 modos deportivos.</p>
-                                                        </td>
-                                                        <td class="p-4 border-l bg-secondary/20"></td>
-                                                    </tr>
-                                                    <tr class="border-b bg-secondary/40">
-                                                        <td colspan="4" class="p-3 text-xs font-semibold uppercase tracking-wide " style="color: var(--muted-foreground);">Utilidades y características</td>
-                                                    </tr>
-                                                    <tr class="border-b last:border-0">
-                                                        <td class="p-4 font-medium text-muted-foreground align-top text-xs uppercase tracking-wide" style="color: var(--muted-foreground);">Cancelación activa</td>
-                                                        <td class="p-4 align-top border-l ">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-[var(--success)]" aria-hidden="true">
-                                                                <path d="M20 6 9 17l-5-5"></path>
-                                                            </svg>
-                                                        </td>
-                                                        <td class="p-4 align-top border-l ">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x" style="color: var(--muted-foreground); opacity: 0.5;" aria-hidden="true">
-                                                                <path d="M18 6 6 18"></path>
-                                                                <path d="m6 6 12 12"></path>
-                                                            </svg>
-                                                        </td>
-                                                        <td class="p-4 border-l bg-secondary/20"></td>
-                                                    </tr>
-                                                    <tr class="border-b last:border-0">
-                                                        <td class="p-4 font-medium text-muted-foreground align-top text-xs uppercase tracking-wide" style="color: var(--muted-foreground);">40h batería</td>
-                                                        <td class="p-4 align-top border-l ">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-[var(--success)]" aria-hidden="true">
-                                                                <path d="M20 6 9 17l-5-5"></path>
-                                                            </svg>
-                                                        </td>
-                                                        <td class="p-4 align-top border-l ">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x" style="color: var(--muted-foreground); opacity: 0.5;" aria-hidden="true">
-                                                                <path d="M18 6 6 18"></path>
-                                                                <path d="m6 6 12 12"></path>
-                                                            </svg>
-                                                        </td>
-                                                        <td class="p-4 border-l bg-secondary/20"></td>
-                                                    </tr>
-                                                    <tr class="border-b last:border-0">
-                                                        <td class="p-4 font-medium text-muted-foreground align-top text-xs uppercase tracking-wide" style="color: var(--muted-foreground);">Bluetooth 5.3</td>
-                                                        <td class="p-4 align-top border-l ">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-[var(--success)]" aria-hidden="true">
-                                                                <path d="M20 6 9 17l-5-5"></path>
-                                                            </svg>
-                                                        </td>
-                                                        <td class="p-4 align-top border-l ">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x" style="color: var(--muted-foreground); opacity: 0.5;" aria-hidden="true">
-                                                                <path d="M18 6 6 18"></path>
-                                                                <path d="m6 6 12 12"></path>
-                                                            </svg>
-                                                        </td>
-                                                        <td class="p-4 border-l bg-secondary/20"></td>
-                                                    </tr>
-                                                    <tr class="border-b last:border-0">
-                                                        <td class="p-4 font-medium text-muted-foreground align-top text-xs uppercase tracking-wide" style="color: var(--muted-foreground);">Estuche de carga</td>
-                                                        <td class="p-4 align-top border-l ">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-[var(--success)]" aria-hidden="true">
-                                                                <path d="M20 6 9 17l-5-5"></path>
-                                                            </svg>
-                                                        </td>
-                                                        <td class="p-4 align-top border-l ">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x" style="color: var(--muted-foreground); opacity: 0.5;" aria-hidden="true">
-                                                                <path d="M18 6 6 18"></path>
-                                                                <path d="m6 6 12 12"></path>
-                                                            </svg>
-                                                        </td>
-                                                        <td class="p-4 border-l bg-secondary/20"></td>
-                                                    </tr>
-                                                    <tr class="border-b last:border-0">
-                                                        <td class="p-4 font-medium text-muted-foreground align-top text-xs uppercase tracking-wide" style="color: var(--muted-foreground);">GPS integrado</td>
-                                                        <td class="p-4 align-top border-l ">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x" style="color: var(--muted-foreground); opacity: 0.5;" aria-hidden="true">
-                                                                <path d="M18 6 6 18"></path>
-                                                                <path d="m6 6 12 12"></path>
-                                                            </svg>
-                                                        </td>
-                                                        <td class="p-4 align-top border-l ">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-[var(--success)]" aria-hidden="true">
-                                                                <path d="M20 6 9 17l-5-5"></path>
-                                                            </svg>
-                                                        </td>
-                                                        <td class="p-4 border-l bg-secondary/20"></td>
-                                                    </tr>
-                                                    <tr class="border-b last:border-0">
-                                                        <td class="p-4 font-medium text-muted-foreground align-top text-xs uppercase tracking-wide" style="color: var(--muted-foreground);">Sumergible 5ATM</td>
-                                                        <td class="p-4 align-top border-l ">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x" style="color: var(--muted-foreground); opacity: 0.5;" aria-hidden="true">
-                                                                <path d="M18 6 6 18"></path>
-                                                                <path d="m6 6 12 12"></path>
-                                                            </svg>
-                                                        </td>
-                                                        <td class="p-4 align-top border-l ">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-[var(--success)]" aria-hidden="true">
-                                                                <path d="M20 6 9 17l-5-5"></path>
-                                                            </svg>
-                                                        </td>
-                                                        <td class="p-4 border-l bg-secondary/20"></td>
-                                                    </tr><tr class="border-b last:border-0">
-                                                        <td class="p-4 font-medium text-muted-foreground align-top text-xs uppercase tracking-wide" style="color: var(--muted-foreground);">Pantalla AMOLED</td>
-                                                        <td class="p-4 align-top border-l ">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x" style="color: var(--muted-foreground); opacity: 0.5;" aria-hidden="true">
-                                                                <path d="M18 6 6 18"></path>
-                                                                <path d="m6 6 12 12"></path>
-                                                            </svg>
-                                                        </td>
-                                                        <td class="p-4 align-top border-l ">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-[var(--success)]" aria-hidden="true">
-                                                                <path d="M20 6 9 17l-5-5"></path>
-                                                            </svg>
-                                                        </td>
-                                                        <td class="p-4 border-l bg-secondary/20"></td>
-                                                    </tr>
-                                                    <tr class="border-b last:border-0"><td class="p-4 font-medium text-muted-foreground align-top text-xs uppercase tracking-wide" style="color: var(--muted-foreground);">14 días batería</td>
-                                                        <td class="p-4 align-top border-l ">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x" style="color: var(--muted-foreground); opacity: 0.5;" aria-hidden="true">
-                                                                <path d="M18 6 6 18"></path>
-                                                                <path d="m6 6 12 12"></path>
-                                                            </svg>
-                                                        </td>
-                                                        <td class="p-4 align-top border-l ">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check text-[var(--success)]" aria-hidden="true">
-                                                                <path d="M20 6 9 17l-5-5"></path>
-                                                            </svg>
-                                                        </td>
-                                                        <td class="p-4 border-l bg-secondary/20"></td>
-                                                    </tr>
-                                                    <tr class="border-b last:border-0">
-                                                        <td class="p-4 font-medium text-muted-foreground align-top text-xs uppercase tracking-wide" style="color: var(--muted-foreground);"></td>
-                                                        <td class="p-4 align-top border-l ">
-                                                            <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-[var(--cta)] text-[var(--cta-foreground)] shadow-sm hover:brightness-95 font-semibold h-8 rounded-md px-3 text-xs w-full">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart" aria-hidden="true">
-                                                                    <circle cx="8" cy="21" r="1"></circle>
-                                                                    <circle cx="19" cy="21" r="1"></circle>
-                                                                    <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
-                                                                </svg> Añadir</button>
-                                                            </td>
-                                                            <td class="p-4 align-top border-l ">
-                                                                <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-[var(--cta)] text-[var(--cta-foreground)] shadow-sm hover:brightness-95 font-semibold h-8 rounded-md px-3 text-xs w-full">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart" aria-hidden="true">
-                                                                        <circle cx="8" cy="21" r="1"></circle>
-                                                                        <circle cx="19" cy="21" r="1"></circle>
-                                                                        <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
-                                                                    </svg> Añadir</button>
-                                                                </td>
-                                                                <td class="p-4 border-l bg-secondary/20"></td>
-                                                            </tr>
-                                                        </tbody>
-                                <tbody>
-                                    <!-- Aquí se agregarán las filas de productos comparados -->
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <section class="mt-10 grid md:grid-cols-3 gap-4">
-                    <div class="rounded-lg border bg-card p-5 flex gap-3">
-                        <div class="h-10 w-10 rounded-md bg-[var(--cta)]/15 text-[var(--cta)] grid place-items-center shrink-0">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trophy" aria-hidden="true">
-                                <path d="M10 14.66v1.626a2 2 0 0 1-.976 1.696A5 5 0 0 0 7 21.978"></path>
-                                <path d="M14 14.66v1.626a2 2 0 0 0 .976 1.696A5 5 0 0 1 17 21.978"></path>
-                                <path d="M18 9h1.5a1 1 0 0 0 0-5H18"></path><path d="M4 22h16"></path>
-                                <path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"></path>
-                                <path d="M6 9H4.5a1 1 0 0 1 0-5H6">
-                                </path>
-                            </svg>
-                        </div>
-                        <div>
-                            <p class="font-semibold">Lado a lado</p>
-                            <p class="text-sm text-muted-foreground mt-0.5">Visualiza hasta 4 productos en columnas para detectar diferencias rápidamente.</p>
-                        </div>
-                    </div>
-                    <div class="rounded-lg border bg-card p-5 flex gap-3">
-                        <div class="h-10 w-10 rounded-md bg-[var(--cta)]/15 text-[var(--cta)] grid place-items-center shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check" aria-hidden="true">
-                            <path d="M20 6 9 17l-5-5"></path>
-                        </svg>
-                    </div>
-                    <div>
-                        <p class="font-semibold">Resaltado automático</p>
-                                <p class="text-sm text-muted-foreground mt-0.5">El mejor precio, valoración y nº de reseñas se marcan en verde.</p>
-                            </div>
-                        </div>
-                        <div class="rounded-lg border bg-card p-5 flex gap-3">
-                                    <div class="h-10 w-10 rounded-md bg-[var(--cta)]/15 text-[var(--cta)] grid place-items-center shrink-0">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap" aria-hidden="true">
-                                            <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path>
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <p class="font-semibold">Matriz de utilidades</p>
-                                        <p class="text-sm text-muted-foreground mt-0.5">Cada característica se compara con un ✓ o ✗ para evitar dudas.</p>
-                                    </div>
-                                </div>
-                            </section>
-            </main>
-        </div>
-    </body>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --primary-dark: #1e293b;
+      --accent-orange: #f59e0b;
+      --price-red: #b91c1c;
+      --rating-stars: #f59e0b;
+    }
+  </style>
+</head>
+<body class="bg-[#f8fafc] text-slate-900 font-sans antialiased min-h-screen flex flex-col">
+
+  <header class="w-full bg-[#0f1e2d] text-white shadow-md">
+    <div class="container mx-auto flex h-14 items-center justify-between px-6 max-w-7xl">
+      <div class="flex items-center gap-6">
+        <span class="font-bold text-lg tracking-tight text-white flex items-center gap-2">
+          <span class="text-[#f59e0b]">📦</span> ShopNova
+        </span>
+        <a href="index.html" 
+           class="inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-white transition-colors cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m15 18-6-6 6-6"/>
+          </svg>
+          Volver a la tienda
+        </a>
+      </div>
+
+      <span class="bg-amber-500/10 text-[#f59e0b] text-xs font-semibold px-3 py-1 rounded border border-amber-500/20 flex items-center gap-1.5">
+        🏆 Modo comparación
+      </span>
+    </div>
+  </header>
+
+  <section class="w-full bg-gradient-to-r from-[#112536] to-[#1a3a54] text-white py-10 px-6">
+    <div class="container mx-auto max-w-7xl flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div>
+        <span class="bg-[#f59e0b] text-slate-900 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">
+          Comparador inteligente
+        </span>
+        <h2 class="text-3xl font-bold tracking-tight mt-2">Compara hasta 4 productos de la misma categoría.</h2>
+        <p class="text-sm text-slate-300 mt-1">
+          Mira precio, valoración, características y utilidades en una sola tabla para decidir con claridad.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-3 bg-white/5 p-3 rounded-lg border border-white/10 shrink-0">
+        <label for="selector-productos-categoria" class="text-xs font-medium text-slate-300 whitespace-nowrap">
+          Categoría:
+        </label>
+        <select id="selector-productos-categoria" 
+                class="bg-white text-slate-900 text-xs rounded px-3 py-2 font-medium focus:outline-none min-w-[200px] cursor-pointer">
+          <option value="" disabled selected>Cargando opciones...</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <div class="container mx-auto flex-1 p-6 max-w-7xl">
+    
+    <div id="loadingSpinnerComparar" class="hidden flex justify-center items-center py-12">
+      <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-amber-500"></div>
+    </div>
+
+    <div class="bg-white border border-slate-200 rounded-lg shadow-sm overflow-x-auto">
+      <table class="w-full table-fixed min-w-[800px] border-collapse text-left text-sm">
+        <tbody id="tabla-matriz-contenido">
+          </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <footer class="bg-[#1f3446] text-[#fafafa] py-6 text-center text-sm border-t border-white/10 mt-auto">
+    <p>&copy; 2026 AMZN - SearchEngine. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="models/Rating.js"></script>
+  <script src="models/Category.js"></script>
+  <script src="models/Product.js"></script>
+
+ 
+  <script src="js/comparar.js"></script>
+
+</body>
 </html>

@@ -127,7 +127,7 @@ class SearchEngineServer {
         console.log("----------------------------------------");
         // Usamos el método describe() del objeto Pokemon (POO).
         console.log(`[${action}] ${pokemon.describe()}`);
-        console.log(`Pokémon en memoria: ${this.store.size}`);
+        console.log(`Producto/s en memoria: ${this.store.size}`);
         console.log("Lista actual:", this.store.list().map((p) => p.label).join(" | "));
         console.log("----------------------------------------");
     }

@@ -7,15 +7,13 @@
  *   - manejo de errores con try/catch y respuestas HTTP no exitosas
  * ============================================================= */
 
-const { fetch } = require("undici-types");
-
 // URL base de la API. Si en el futuro cambia, solo se edita aquí.
 const API_BASE_URL = 'https://fakestoreapi.com';
 
 /**
- * Error personalizado para distinguir un "no encontrado" (404)
- * de un error de red u otro problema. Así la UI puede mostrar
- * mensajes distintos según el caso.
+    * Error personalizado para distinguir un "no encontrado" (404)
+    * de un error de red u otro problema. Así la UI puede mostrar
+    * mensajes distintos según el caso.
  */
 class ApiError extends Error {
     constructor(message, status) {
@@ -148,7 +146,7 @@ async function obtenerCategorias() {
     * @throws {ApiError} Si el ID no existe (404) o si falla la red
 */
 async function obtenerProductosPorCategoria(category) {
-    const url = `${API_BASE_URL}/productos/category/${encodeURIComponent(category)}`;
+    const url = `${API_BASE_URL}/products/category/${encodeURIComponent(category)}`;
 
     try {
         const respuesta = await fetch(url);
