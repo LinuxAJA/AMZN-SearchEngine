@@ -57,7 +57,6 @@ async function obtenerProductoPorId(id) {
         // 4) Convertimos el cuerpo a JSON (también es una Promesa -> await).
         const datos = await respuesta.json();
 
-        // 5) La API envuelve el resultado en { photo: {...} }. Lo devolvemos limpio.
         return datos;
     } catch (error) {
         // Si ya es un ApiError, lo relanzamos tal cual.

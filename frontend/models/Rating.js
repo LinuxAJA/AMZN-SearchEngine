@@ -39,8 +39,4 @@ class Rating {
     }
 }
 
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = Rating;
-} else {
-    window.Rating = Rating;
-}
+window.Rating = Rating;

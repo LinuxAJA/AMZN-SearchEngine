@@ -2,7 +2,9 @@
 const BACKEND_URL = "http://localhost:3000";
 
 let productosCargados = []; // Almacena el total de productos obtenidos del servicio
+let categoriasCargadas = []; // Almacena el total de productos obtenidos del servicio
 let limiteActual = 6;       // Cantidad de productos visibles inicialmente
+let categoriaSeleccionadaActual = "all"; // Variable de estado global para rastrear el filtro activo (inicia en "all")
 const INCREMENTO = 6;       // Cuántos productos adicionales se muestran al pulsar "Ver más"
 
 
@@ -17,7 +19,6 @@ const priceRange = document.getElementById("priceRange");
 const priceValue = document.getElementById("priceValue");
 const topNavCategories = document.getElementById("topNavCategories");
 const asideCategories = document.getElementById("asideCategories");
-
 
 // 3. FUNCIONES DE CONTROL DE INTERFAZ (UI)
 
@@ -64,18 +65,92 @@ function limpiarMensajeEstado() {
   statusMessage.classList.add("hidden");
 }
 
-
+// ============================================================
 // 4. FUNCIONES DE RENDERIZADO (DIBUJAR EN PANTALLA)
-/*
- * Toma el arreglo global de productos cargados y dibuja en el HTML
- * únicamente los elementos que estén dentro de nuestro límite actual.
- */
+// ============================================================
+/**
+  * RENDERIZAR CATEGORIAS
+
+  * Toma el arreglo global de Ctegorias Cargadas y dibuja en el HTML
+  * únicamente los elementos que estén dentro de nuestro límite actual.
+*/
+function renderizarCategorias() {
+  // Si no hay productos que mostrar, limpiamos el grid y avisamos
+  if (categoriasCargadas.length === 0) {
+    asideCategories.innerHTML = "";
+    topNavCategories.innerHTML = "";
+    mostrarMensajeEstado("No se encontraron categorias.");
+    return;
+  }
+
+  limpiarMensajeEstado();
+
+  const claseCategory = window.Category;
+
+  // Mapeamos las categorías de TopNav evaluando si coinciden con la activa
+  const htmlTopNavCategories = categoriasCargadas.map(categoria => {
+    const esActivo = categoriaSeleccionadaActual === categoria;
+    const clases = esActivo
+      ? "flex items-center space-x-1 hover:bg-white/10 px-3 py-1.5 rounded transition font-sans cursor-pointer bg-white/20 font-semibold"
+      : "hover:bg-white/10 px-3 py-1.5 rounded transition font-sans cursor-pointer";
+
+    // Instanciamos la clase Frontend para obtener el nombre traducido
+    const categoriaObjeto = new claseCategory(categoria);
+
+    return `<button data-category="${categoria}" class="${clases}">${categoriaObjeto.label}</button>`;
+  }).join("");
+
+  // Mapeamos las categorías de Aside evaluando si coinciden con la activa
+  const htmlAsideCategories = categoriasCargadas.map(categoria => {
+    const esActivo = categoriaSeleccionadaActual === categoria;
+    const clases = esActivo
+      ? "text-left px-2 py-1.5 rounded-md transition-colors bg-secondary font-semibold text-[var(--price)] cursor-pointer"
+      : "text-left px-2 py-1.5 rounded-md transition-colors hover:bg-secondary/60 text-muted-foreground cursor-pointer";
+
+    // Instanciamos la clase Frontend para obtener el nombre traducido
+    const categoriaObjeto = new claseCategory(categoria);
+
+    return `<button data-category="${categoria}" class="${clases}">${categoriaObjeto.label}</button>`;
+  }).join("");
+
+  // Evaluamos de manera independiente el botón "Todo" para ambos menús
+  const todoTopNavClases = categoriaSeleccionadaActual === "all"
+    ? "flex items-center space-x-1 hover:bg-white/10 px-3 py-1.5 rounded transition font-sans cursor-pointer bg-white/20 font-semibold"
+    : "hover:bg-white/10 px-3 py-1.5 rounded transition font-sans cursor-pointer";
+
+  const todoAsideClases = categoriaSeleccionadaActual === "all"
+    ? "text-left px-2 py-1.5 rounded-md transition-colors bg-secondary font-semibold text-[var(--price)] cursor-pointer"
+    : "text-left px-2 py-1.5 rounded-md transition-colors hover:bg-secondary/60 text-muted-foreground cursor-pointer";
+
+  // Inyectamos los bloques en el DOM
+  asideCategories.innerHTML = `
+    <button data-category="all" class="${todoAsideClases}">Todo</button>
+    ${htmlAsideCategories}
+  `;
+  topNavCategories.innerHTML = `
+    <button data-category="all" class="${todoTopNavClases}">
+      <span>Todo</span>
+    </button>
+    ${htmlTopNavCategories}
+  `;
+}
+
+/**
+  * RENDERIZAR PRODUCTOS
+
+  * Toma el arreglo global de productos cargados y dibuja en el HTML
+  * únicamente los elementos que estén dentro de nuestro límite actual.
+*/
 function renderizarProductos() {
+  const contadorElemento = document.getElementById('contador-productos');
+
   // Si no hay productos que mostrar, limpiamos el grid y avisamos
   if (productosCargados.length === 0) {
     productsGrid.innerHTML = "";
     mostrarMensajeEstado("No se encontraron productos que coincidan con los filtros.");
     actualizarBotonVerMas();
+
+    if (contadorElemento) contadorElemento.textContent = "No se muestran Productos";
     return;
   }
 
@@ -83,6 +158,16 @@ function renderizarProductos() {
   // Cortamos el arreglo desde la posición 0 hasta el límite actual (ej: de 0 a 6)
   const productosVisibles = productosCargados.slice(0, limiteActual);
 
+  if (contadorElemento) {
+    const totalMostrados = productosVisibles.length;
+    const totalDisponibles = productosCargados.length;
+
+    if (totalMostrados === totalDisponibles) {
+      contadorElemento.textContent = `Mostrando ${totalMostrados} productos`;
+    } else {
+    contadorElemento.textContent = `Mostrando ${totalMostrados} de ${totalDisponibles}`;
+    } 
+  }
   // Mapeamos los productos a plantillas HTML de tarjetas dinámicas
   const htmlCards = productosVisibles.map(producto => {
     // Generar estrellas visuales según la calificación (Rating)
@@ -126,7 +211,7 @@ function renderizarProductos() {
   }).join("");
 
   productsGrid.innerHTML = htmlCards;
-  
+
   // Evaluamos si el botón de Ver más debe permanecer o desaparecer
   actualizarBotonVerMas();
 }
@@ -134,13 +219,12 @@ function renderizarProductos() {
 // 5. CONTROLADORES DE CARGA DE DATOS Y FILTROS (CORREGIDO)
 
 /**
- * Carga el catálogo base llamando a la función desde el objeto FakeStoreAPI
- */
+  * Carga el catálogo DE Poductos base llamando a la función desde el objeto FakeStoreAPI
+*/
 async function inicializarCatalogo() {
   toggleSpinner(true);
   try {
-    // CORRECCIÓN: Se llama a través del objeto global expuesto en api.js
-    const datos = await window.FakeStoreAPI.obtenerProductos(); 
+    const datos = await window.FakeStoreAPI.obtenerProductos();
     productosCargados = datos;
     limiteActual = 6; // Reseteamos la paginación inicial
     renderizarProductos();
@@ -153,12 +237,30 @@ async function inicializarCatalogo() {
 }
 
 /**
- * Filtra el catálogo en base al texto de búsqueda y la categoría seleccionada
+ * Carga las Categorías llamando a la función desde el objeto FakeStoreAPI
  */
+async function inicializarCategorias() {
+  toggleSpinner(true);
+  try {
+    // CORRECCIÓN: Se llama a través del objeto global expuesto en api.js
+    const datos = await window.FakeStoreAPI.obtenerCategorias();
+    categoriasCargadas = datos;
+    renderizarCategorias();
+  } catch (error) {
+    console.error(error);
+    mostrarMensajeEstado("Ocurrió un error al cargar las categorias de FakeStore. Revisa tu conexión de red.", true);
+  } finally {
+    toggleSpinner(false);
+  }
+}
+
+/*
+  * Filtra el catálogo en base al texto de búsqueda y la categoría seleccionada
+*/
 async function aplicarFiltros(categoriaSeleccionada = "all") {
   toggleSpinner(true);
   limpiarMensajeEstado();
-  
+
   try {
     // 1. Obtener la base de datos limpia llamando al objeto de api.js
     let productosBase = [];
@@ -173,8 +275,8 @@ async function aplicarFiltros(categoriaSeleccionada = "all") {
     // 2. Aplicar filtro secundario por cuadro de texto de búsqueda si contiene algo
     const termino = searchInput.value.toLowerCase().trim();
     if (termino !== "") {
-      productosBase = productosBase.filter(producto => 
-        producto.title.toLowerCase().includes(termino) || 
+      productosBase = productosBase.filter(producto =>
+        producto.title.toLowerCase().includes(termino) ||
         producto.description.toLowerCase().includes(termino)
       );
     }
@@ -183,7 +285,7 @@ async function aplicarFiltros(categoriaSeleccionada = "all") {
     const precioMaximo = parseFloat(priceRange.value);
     productosBase = productosBase.filter(producto => producto.price <= precioMaximo);
 
-   // Guardamos los resultados finales, reiniciamos la paginación y renderizamos
+    // Guardamos los resultados finales, reiniciamos la paginación y renderizamos
     productosCargados = productosBase;
     limiteActual = 6;
     renderizarProductos();
@@ -223,6 +325,8 @@ function irAComparar(id) {
 document.addEventListener("DOMContentLoaded", () => {
   // Arranque inicial del catálogo
   inicializarCatalogo();
+  // Arranque de las categorias 
+  inicializarCategorias();
 
   // Guardamos los registros de eventos de forma segura verificando que existan en el HTML
   if (loadMoreButton) {
@@ -251,13 +355,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const boton = event.target.closest("button");
       if (!boton) return;
 
-      Array.from(topNavCategories.querySelectorAll("button")).forEach(btn => {
-        btn.className = "hover:bg-white/10 px-3 py-1.5 rounded transition font-sans cursor-pointer";
-      });
-      boton.className = "flex items-center space-x-1 hover:bg-white/10 px-3 py-1.5 rounded transition font-sans cursor-pointer bg-white/20 font-semibold";
-
-      const categoria = boton.getAttribute("data-category");
-      aplicarFiltros(categoria);
+      // Actualizamos la categoría en nuestro estado global
+      categoriaSeleccionadaActual = boton.getAttribute("data-category");
+      // Ejecutamos tus filtros originales
+      aplicarFiltros(categoriaSeleccionadaActual);
+      // Re-renderizamos para actualizar visualmente ambas listas simultáneamente
+      renderizarCategorias();
     });
   }
 
@@ -266,13 +369,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const boton = event.target.closest("button");
       if (!boton) return;
 
-      Array.from(asideCategories.querySelectorAll("button")).forEach(btn => {
-        btn.className = "text-left px-2 py-1.5 rounded-md transition-colors hover:bg-secondary/60 text-muted-foreground cursor-pointer";
-      });
-      boton.className = "text-left px-2 py-1.5 rounded-md transition-colors bg-secondary font-semibold text-[var(--price)] cursor-pointer";
-
-      const categoria = boton.getAttribute("data-category");
-      aplicarFiltros(categoria);
+      // Actualizamos la categoría en nuestro estado global
+      categoriaSeleccionadaActual = boton.getAttribute("data-category");
+      // Ejecutamos tus filtros originales
+      aplicarFiltros(categoriaSeleccionadaActual);
+      // Re-renderizamos para actualizar visualmente ambas listas simultáneamente
+      renderizarCategorias();
     });
   }
 });

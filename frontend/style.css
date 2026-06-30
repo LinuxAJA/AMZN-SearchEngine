@@ -72,6 +72,10 @@ h6 {
     background-color: var(--secondary);
 }
 
+.text-foreground {
+    color: var(--foreground);
+}
+
 .hover\:bg-secondary:hover,
 .hover\:bg-secondary\/60:hover {
     background-color: var(--secondary);

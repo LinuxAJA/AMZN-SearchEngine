@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Comparador Inteligente — ShopNova</title>
-  
+
   <script src="https://cdn.tailwindcss.com"></script>
-  
+
+  <link rel="stylesheet" href="style.css">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
 
   <script>
     tailwind.config = {
@@ -32,24 +37,27 @@
     }
   </style>
 </head>
+
 <body class="bg-[#f8fafc] text-slate-900 font-sans antialiased min-h-screen flex flex-col">
 
   <header class="w-full bg-[#0f1e2d] text-white shadow-md">
     <div class="container mx-auto flex h-14 items-center justify-between px-6 max-w-7xl">
       <div class="flex items-center gap-6">
         <span class="font-bold text-lg tracking-tight text-white flex items-center gap-2">
-          <span class="text-[#f59e0b]">📦</span> ShopNova
+          <span class="text-[#f59e0b]">📦</span> AMZN-SearchEngine
         </span>
-        <a href="index.html" 
-           class="inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-white transition-colors cursor-pointer">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="m15 18-6-6 6-6"/>
+        <a href="index.html"
+          class="inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-white transition-colors cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
+            <path d="m15 18-6-6 6-6" />
           </svg>
           Volver a la tienda
         </a>
       </div>
 
-      <span class="bg-amber-500/10 text-[#f59e0b] text-xs font-semibold px-3 py-1 rounded border border-amber-500/20 flex items-center gap-1.5">
+      <span
+        class="bg-amber-500/10 text-[#f59e0b] text-xs font-semibold px-3 py-1 rounded border border-amber-500/20 flex items-center gap-1.5">
         🏆 Modo comparación
       </span>
     </div>
@@ -71,8 +79,8 @@
         <label for="selector-productos-categoria" class="text-xs font-medium text-slate-300 whitespace-nowrap">
           Categoría:
         </label>
-        <select id="selector-productos-categoria" 
-                class="bg-white text-slate-900 text-xs rounded px-3 py-2 font-medium focus:outline-none min-w-[200px] cursor-pointer">
+        <select id="selector-categoria"
+          class="bg-white text-slate-900 text-xs rounded px-3 py-2 font-medium focus:outline-none min-w-[200px] cursor-pointer">
           <option value="" disabled selected>Cargando opciones...</option>
         </select>
       </div>
@@ -80,18 +88,42 @@
   </section>
 
   <div class="container mx-auto flex-1 p-6 max-w-7xl">
-    
+
     <div id="loadingSpinnerComparar" class="hidden flex justify-center items-center py-12">
       <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-amber-500"></div>
     </div>
 
     <div class="bg-white border border-slate-200 rounded-lg shadow-sm overflow-x-auto">
-      <table class="w-full table-fixed min-w-[800px] border-collapse text-left text-sm">
+      <table id="tablaComparativa" class="w-full table-fixed min-w-[800px] border-collapse text-left text-sm">
         <tbody id="tabla-matriz-contenido">
-          </tbody>
+        </tbody>
       </table>
     </div>
+  </div>
 
+  <div id="modal-overlay" class="fixed inset-0 z-50 bg-black/80 opacity-0 pointer-events-none transition-opacity duration-300" aria-hidden="true"></div>
+
+  <div role="dialog" id="modal-container" aria-describedby="modal-description" aria-labelledby="modal-title" class="fixed left-1/2 top-1/2 z-50 grid w-full max-w-2xl -translate-x-1/2 -translate-y-1/2 gap-4 border bg-white p-6 shadow-lg sm:rounded-lg transition-all duration-300 opacity-0 scale-95 pointer-events-none" tabindex="-1">
+    <div class="flex flex-col space-y-1.5 text-center sm:text-left">
+      <h2 id="modal-title" class="text-lg font-semibold leading-none tracking-tight">Añadir Producto a Comparar</h2>
+    </div>
+    <form id="search-form" class="relative">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" aria-hidden="true">
+        <path d="m21 21-4.34-4.34"></path>
+        <circle cx="11" cy="11" r="8"></circle>
+      </svg>
+      <input id="search-input" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm pl-9" placeholder="Buscar en…" value="">
+    </form>
+    <div id="opciones-productos-grid" class="max-h-[420px] overflow-y-auto -mx-2 px-2 space-y-2">
+      
+    </div>
+    <button id="close-modal-btn" type="button" class="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background cursor-pointer transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x h-4 w-4" aria-hidden="true">
+        <path d="M18 6 6 18"></path>
+        <path d="m6 6 12 12"></path>
+      </svg>
+      <span class="sr-only">Close</span>
+    </button>
   </div>
 
   <footer class="bg-[#1f3446] text-[#fafafa] py-6 text-center text-sm border-t border-white/10 mt-auto">
@@ -103,8 +135,9 @@
   <script src="models/Category.js"></script>
   <script src="models/Product.js"></script>
 
- 
+
   <script src="js/comparar.js"></script>
 
 </body>
+
 </html>

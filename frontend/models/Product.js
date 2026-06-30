@@ -61,11 +61,4 @@ class Product {
     }
 }
 
-// 2. ADAPTACIÓN DE FINAL: Exportación condicional según el entorno
-if (typeof module !== 'undefined' && module.exports) {
-    // Si estamos en Node.js, exportamos de forma normal
-    module.exports = Product;
-} else {
-    // Si estamos en la Web, lo registramos globalmente en el navegador
-    window.Product = Product;
-}
+window.Product = Product;
